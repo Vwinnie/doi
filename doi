@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class Spiel2048 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialisieren Sie das Spielfeld
+        int[][] spielfeld = new int[4][4];
+
+        // Platzieren Sie zwei zufällige Zahlen auf dem Spielfeld
+        platzierenZufallszahl(spielfeld);
+        platzierenZufallszahl(spielfeld);
+
+        // Spielschleife
+        while (true) {
+            // Anzeigen des Spielfelds
+            anzeigenSpielfeld(spielfeld);
+
+            // Benutzereingabe
+            System.out.print("Geben Sie Ihre Richtung ein (W, A, S, D): ");
+            String richtung = scanner.next();
+
+            // Überprüfen Sie die Gültigkeit der Richtung und verschieben Sie das Spielfeld
+            if (istGültigeRichtung(richtung)) {
+                verschieben(spielfeld, richtung);
+
+                // Platzieren Sie eine neue Zufallszahl auf dem Spielfeld
+                platzierenZufallszahl(spielfeld);
+
+                // Überprüfen Sie auf Spielende
+                if (spielEnde(spielfeld)) {
+                    System.out.println("Spiel vorbei! Sie haben verloren.");
+                    break;
+                }
+            } else {
+                System.out.println("Ungültige Richtung! Geben Sie W, A, S oder D ein.");
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Funktion zum Anzeigen des Spielfelds
+    private static void anzeigenSpielfeld(int[][] spielfeld) {
+        System.out.println("Spielfeld:");
+
+        for (int i = 0; i < spielfeld.length; i++) {
+            for (int j = 0; j < spielfeld[i].length; j++) {
+                System.out.print(spielfeld[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    // Funktion zum Platzieren einer Zufallszahl auf dem Spielfeld
+    private static void platzierenZufallszahl(int[][] spielfeld) {
+        // Implementieren Sie die Logik zum Platzieren einer Zufallszahl
+        // auf dem Spielfeld (z.B. 2 oder 4 an einer leeren Stelle).
+    }
+
+    // Funktion zum Überprüfen der Gültigkeit der Benutzereingaberichtung
+    private static boolean istGültigeRichtung(String richtung) {
+        // Überprüfen Sie, ob die eingegebene Richtung gültig ist (W, A, S oder D).
+        return richtung.equals("W") || richtung.equals("A") || richtung.equals("S") || richtung.equals("D");
+    }
+
+    // Funktion zum Verschieben des Spielfelds basierend auf der Benutzereingabe
+    private static void verschieben(int[][] spielfeld, String richtung) {
+        // Implementieren Sie die Logik zum Verschieben des Spielfelds
+        // basierend auf der Benutzereingabe (W, A, S oder D).
+    }
+
+    // Funktion zum Überprüfen auf Spielende (keine leeren Zellen und keine Verschiebemöglichkeiten)
+    private static boolean spielEnde(int[][] spielfeld) {
+        // Implementieren Sie die Logik zum Überprüfen auf Spielende.
+        return false;
+    }
+}
