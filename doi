@@ -7,10 +7,7 @@ public class Spiel2048 {
         // Initialisieren Sie das Spielfeld
         int[][] spielfeld = new int[4][4];
 
-        // Platzieren Sie zwei zufällige Zahlen auf dem Spielfeld
-        platzierenZufallszahl(spielfeld);
-        platzierenZufallszahl(spielfeld);
-
+        
         // Spielschleife
         while (true) {
             // Anzeigen des Spielfelds
